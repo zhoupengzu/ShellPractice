@@ -55,3 +55,13 @@ echo "The substring is ${base_sub_str:1:4}"
 #查找子字符串（有问题）
 # base_find_str="Hello,Find me"
 # echo `expr index "$base_find_str" me`
+
+#数组（不支持多维数组，且大小不定） 两种定义方式：数组名=(值1 值2 ... 值n)或者array_name[0]=value0,array_name[1]=value1,array_name[n]=valuen
+arr_name=()
+arr_name[0]=2
+arr_name[1]=3
+echo ${arr_name[@]}  #使用@打印所有数组内容
+echo ${arr_name[*]}  #或者使用*打印所有数组内容
+
+length=${#arr_name[@]} #或者length=${arr_name[*]}
+echo $length
