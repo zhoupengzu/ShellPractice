@@ -24,3 +24,34 @@ echo $read_only_var
 unset_var="I am will unset"
 unset unset_var
 echo $unset_var  #这里不会有输出
+
+#变量类型
+#局部变量、环境变量、shell变量（既有局部变量，又有环境变量）
+
+#字符串：既可以用单引号也可以用双引号，也可以不用引号
+#单引号限制：1、单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；2、单引号字串中不能出现单引号（对单引号使用转义符后也不行）
+#双引号没有上述限制
+str1="双引号"
+str2='单引号'
+str3=没引号
+echo ${str3}
+
+#拼接字符串
+base_str="zhoupengzu"
+concat_str1="Hello,"$base_str"!"
+concat_str2="Hello,$base_str!"
+concat_str2="Hello,${base_str}!"
+echo $concat_str1 $concat_str2
+
+#获取字符串长度:字符串前加“#”号
+base_length_str="Hello!Length"
+str_length=${#base_length_str}
+echo $str_length
+
+#截取字符串
+base_sub_str="Hello!SubString"
+echo "The substring is ${base_sub_str:1:4}"
+
+#查找子字符串（有问题）
+# base_find_str="Hello,Find me"
+# echo `expr index "$base_find_str" me`
