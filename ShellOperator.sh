@@ -30,9 +30,33 @@ else
   echo "not equal"
 fi
 
+echo "=====================================布尔运算和逻辑运算==================================="
+a=10
+b=20
+c=100
 #布尔运算符：！（非）、-o（或）、-a（且）
+if [ $a != $b ]
+then
+  echo "a!=b"
+fi
+# [ $a -lt $c ] -a [ $b -lt $c ] 错误写法
+# if [ ($a -lt $c) -a ($b -lt $c) ]  错误写法，不能加括号
+# if [[ $a -lt $c -a $b -lt $c ]] 错误写法
+if [ $a -lt $c -a $b -lt $c ]
+then
+  echo "small"
+fi
 
 #逻辑运算符：&&、||
+# if [[ $a -lt $c ] && [ $b -lt $c ]] 错误写法
+# if [[ $a -lt $c -a $b -lt $c ]] 错误写法
+# if [[ ($a -lt $c) && ($b -lt $c) ]] 正确写法
+# if [ $a -lt $c && $b -lt $c ]  错误写法
+if [[ $a -lt $c && $b -lt $c ]]
+then
+  echo "&& small"
+fi
+echo "可以理解为：布尔运算是用来计算两个布尔值的，逻辑运算是?"
 
 #字符串运算符：=（是否相等）、！=（是否不等）、-z（长度是否为0，是则返回true）、-n（长度是否为0，是则返回false）、str(字符串是否为空)
 
